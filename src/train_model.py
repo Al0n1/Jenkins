@@ -12,10 +12,10 @@ def train_model():
     os.makedirs('models', exist_ok=True)
     
     # Загружаем обработанные данные
-    X_train = np.load('data/processed/X_train.npy')
-    X_test = np.load('data/processed/X_test.npy')
-    y_train = np.load('data/processed/y_train.npy')
-    y_test = np.load('data/processed/y_test.npy')
+    X_train = np.load('data/processed/X_train.npy', allow_pickle=True)
+    X_test = np.load('data/processed/X_test.npy', allow_pickle=True)
+    y_train = np.load('data/processed/y_train.npy', allow_pickle=True)
+    y_test = np.load('data/processed/y_test.npy', allow_pickle=True)
     
     # Создаем и обучаем модель
     model = RandomForestClassifier(
