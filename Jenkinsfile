@@ -66,6 +66,12 @@ pipeline {
                 }
             }
         }
+        
+        stage('Manual Verification') {
+            steps {
+                input message: 'Application deployed. Verify and click "Proceed" to continue.', ok: 'Proceed'
+            }
+        }
     }
     
     post {
