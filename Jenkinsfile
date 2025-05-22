@@ -12,10 +12,10 @@ pipeline {
                 script {
                     // Создание виртуального окружения
                     sh """
-                        python3 -m venv ${VENV}
+                        python3.10 -m venv ${VENV}
                         . ${VENV}/bin/activate
-                        python3 -m pip install --upgrade pip
-                        python3 -m pip install "setuptools<69" wheel
+                        python3.10 -m pip install --upgrade pip
+                        python3.10 -m pip install "setuptools<69" wheel
                         pip install -r requirements.txt
                     """
                 }
@@ -27,7 +27,7 @@ pipeline {
                 script {
                     sh """
                         . ${VENV}/bin/activate
-                        python3 src/data_collection.py
+                        python3.10 src/data_collection.py
                     """
                 }
             }
@@ -38,7 +38,7 @@ pipeline {
                 script {
                     sh """
                         . ${VENV}/bin/activate
-                        python3 src/data_preprocessing.py
+                        python3.10 src/data_preprocessing.py
                     """
                 }
             }
@@ -49,7 +49,7 @@ pipeline {
                 script {
                     sh """
                         . ${VENV}/bin/activate
-                        python3 src/train_model.py
+                        python3.10 src/train_model.py
                     """
                 }
             }
